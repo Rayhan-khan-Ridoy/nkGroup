@@ -22,25 +22,24 @@
             </div>
         </div>
     </div>
-    <table border="1" align="center" class="table">
-</div>
+ </div>
+ 
+<table border="1" align="center" class="table">
 
-
-
-<tr>
-    <th>User Unique-Id</th>
-    <th>User_Name</th>
-    <th>Email</th>
-    
-</tr>
-@foreach($user as $s)
-    <tr>
-        {{-- <td><a href="{{route('details', ['id' => $s->id,'name'=>$s->name])}}">{{$s->name}}</td> --}}
-        <td>{{$s->id}}</td>
-        <td>{{$s->name}}</td>
-        <td>{{$s->email}}</td>
-    
-    </tr>
-@endforeach
+        <tr>
+            <th>User Unique-Id</th>
+            <th>User_Name</th>
+            <th>Email</th>
+            
+        </tr>
+        @foreach($user as $s)
+            <tr>
+                {{-- <td><a href="{{route('details', ['id' => $s->id,'name'=>$s->name])}}">{{$s->name}}</td> --}}
+                <td>{{$s->id}}</td>
+                <td>{{$s->name}}</td>
+                <td>{{$s->email}}</td>
+            
+            </tr>
+        @endforeach
 </table>
 @endsection

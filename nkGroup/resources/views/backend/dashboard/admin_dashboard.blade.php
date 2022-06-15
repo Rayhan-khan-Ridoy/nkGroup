@@ -2,9 +2,16 @@
 
             <h1 >WELCOME TO  ADMIN-DASHBOARD</h1>
             <button type="button" class="btn btn-danger"> <a href="/custom_logout">Logout</a> </button>
+            <form action="{{route('searchAdmin')}}" method="GET">
+
+                <input type="text" name="search"  placeholder="Search ..">
+                <input type="submit" value="Search">
+                <button type="button" name="back" class="btn btn-success" ><a href="/admin/dashboard"> <h6>Reset</h6> </a>  </button>
+            
+            </form>
             <br>
             <h1> {{--------------------------------------------------}}</h1>
-            
+
             <table border="1" align="center" class="table">
 
 

@@ -28,4 +28,26 @@ class DashboardController extends Controller
          //return "ok";
         return view('backend.dashboard.agent_dashboard')->with('agent',$agent);
     }
+
+    //admin search
+    public function searchAdmin(Request $req){
+
+
+        if($req->search != ""){
+         $searchVar=$req->search; //for see what is searching in search box
+          //dd($search);
+          $admin = Admin::where('name',"LIKE", "%{$req->search}%")->get();
+          $agent = Agent::where('name',"LIKE", "%{$req->search}%")->get();
+          $user = User::where('name',"LIKE", "%{$req->search}%")->get();
+
+          return view('backend.dashboard.admin_dashboard')
+          ->with("searchVar",$searchVar)
+          ->with("user",$user)
+          ->with("agent",$agent)
+          ->with("admin",$admin);
+        }
+        else {
+          return back();
+        }
+}
 }

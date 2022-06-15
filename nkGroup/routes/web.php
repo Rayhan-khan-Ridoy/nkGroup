@@ -20,13 +20,16 @@ use App\Http\Controllers\HomeController;
 Route::get('/', function () {
     return view('welcome');
 });
+//backend routes
+
+//user
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('auth');
 Route::get('/custom_logout3',[HomeController::class,'custom_logout3'])->name('custom_logout3');
 
-//backend routes
+
 
 //admin
 Route::get('/login/Admin', [AdminController::class, 'adminLoginForm'])->name('admin.login.form');
@@ -35,6 +38,7 @@ Route::post('/admin_Login', [AdminController::class, 'admin_Login'])->name('admi
 Route::group(['middleware'=>'admin'],function(){
     Route::get('/admin/dashboard', [DashboardController::class, 'adminDashboard'])->name('admin.dashboard');
     Route::get('/custom_logout',[AdminController::class,'custom_logout'])->name('custom_logout');
+    Route::get('/searchAdmin/', [DashboardController::class,'searchAdmin'])->name('searchAdmin');
 });
 
 //agent

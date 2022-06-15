@@ -7,15 +7,15 @@ use Illuminate\Http\Request;
 
 use Auth;
 
-class AdminController extends Controller
+class AgentController extends Controller
 {
     //
-    public function adminLoginForm(){
-        return view('backend.admin.admin_login');
+    public function agentLoginForm(){
+        return view('backend.agent.agent_login');
         //return "ok";
     }
 
-    public function admin_Login(Request $req){
+    public function agent_Login(Request $req){
   
         
         $this->validate($req,
@@ -30,9 +30,10 @@ class AdminController extends Controller
                                   'password.required'=>'Please provide password**'
                               ]
                           );
-                          
-        if(Auth::guard('admin')->attempt(['email'=>$req->email,'password'=>$req->password])){
-            return redirect('/admin/dashboard');
+       // dd($req->all())              ;  
+        if(Auth::guard('agent')->attempt(['email'=>$req->email,'password'=>$req->password])){
+            return redirect('/agent/dashboard');
+            
 
         }
         else{
@@ -43,9 +44,10 @@ class AdminController extends Controller
         //return "ok";
     }
 
-    public function custom_logout(){
+    public function custom_logout2(){
         session()->flush();
-        //return "logout hoisa";
         return redirect()->route('login');
     }
+
+    
 }

@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\User;
 
 use Illuminate\Http\Request;
 
@@ -23,6 +24,13 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $user=User::all(); 
+        return view('home')->with('user',$user);;
+    }
+
+    public function custom_logout3(){
+        session()->flush();
+        //return "logout hoisa";
+        return redirect()->route('login');
     }
 }
